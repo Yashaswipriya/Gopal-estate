@@ -1,6 +1,7 @@
 "use client";
  import Hero from "@/components/Hero";
  import StatsSection from "@/components/StatsSection";
+ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,9 @@ export default function Home() {
       <Hero />
       <section>
         <StatsSection />
+      </section>
+      <section>
+        <Footer />
       </section>
     </main>
   )
