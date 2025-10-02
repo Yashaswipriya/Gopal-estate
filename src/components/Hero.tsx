@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const menuItems = ["Home", "About", "Properties", "Contact"];
 
@@ -66,7 +67,7 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 1.2 }}
           className="text-white text-xl"
         >
-          ⬇ Scroll
+          <ChevronDown />
         </motion.div>
       </div>
 
