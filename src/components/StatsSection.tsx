@@ -41,7 +41,8 @@ export default function StatsSection() {
   }, [inView, controls]);
 
   return (
-    <section ref={ref} className="py-24 bg-gray-50 flex justify-center">
+    <section ref={ref} className="py-24 bg-gray-50 flex flex-col items-center">
+      {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-center items-center">
         {stats.map((stat, i) => (
           <motion.div
@@ -70,6 +71,14 @@ export default function StatsSection() {
             </p>
           </motion.div>
         ))}
+      </div>
+
+      {/* Tagline Below Stats */}
+      <div className="mt-[8rem] text-center px-6 max-w-3xl">
+        <h3 className="text-xl sm:text-2xl font-heading tracking-wide leading-relaxed">
+          DISCOVER NEW AND RESALE LUXURY PROPERTIES, <br />
+          ALL RERA-VERIFIED, IN THE HEART OF GURUGRAM.
+        </h3>
       </div>
     </section>
   );
