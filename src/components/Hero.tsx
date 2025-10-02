@@ -67,7 +67,7 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 1.2 }}
           className="text-white text-xl"
         >
-          <ChevronDown />
+          <ChevronDown size={40}/>
         </motion.div>
       </div>
 
