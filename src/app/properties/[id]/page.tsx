@@ -18,15 +18,13 @@ const slugify = (str: string) =>
   str.trim().toLowerCase().replace(/\s+/g, "-");
 
 export default function PropertyDetails({ params }: { params: { id: string } }) {
-  // CSV path
   const filePath = path.join(process.cwd(), "public", "properties.csv");
   const file = fs.readFileSync(filePath, "utf-8");
 
-  // Parse CSV and normalize headers
   const { data } = Papa.parse<Property>(file, {
     header: true,
     skipEmptyLines: true,
-    transformHeader: (header) => header.replace(/\s+/g, ""), // removes spaces
+    transformHeader: (header) => header.replace(/\s+/g, ""),
   });
 
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
