@@ -17,20 +17,22 @@ interface Property {
 const slugify = (str: string) =>
   str.trim().toLowerCase().replace(/\s+/g, "-");
 
-export default function PropertyDetails({ params }: { params: { id: string } }) {
+export default function PropertyDetails(props: any) {
+  const { params } = props;
+  const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
+
+  // server-side CSV reading
   const filePath = path.join(process.cwd(), "public", "properties.csv");
   const file = fs.readFileSync(filePath, "utf-8");
 
-  const { data } = Papa.parse<Property>(file, {
+  const { data } = Papa.parse(file, {
     header: true,
     skipEmptyLines: true,
     transformHeader: (header) => header.replace(/\s+/g, ""),
   });
 
-  const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
-
-  const property = (data as Property[]).find(
-    (p) => slugify(p.Project) === projectSlug
+  const property = (data as any[]).find(
+    (p) => p.Project.trim().toLowerCase().replace(/\s+/g, "-") === projectSlug
   );
 
   if (!property) return <div className="p-12">Property not found.</div>;
