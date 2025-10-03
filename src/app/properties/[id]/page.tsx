@@ -5,26 +5,29 @@ import { projectImages, defaultPropertyImage } from "@/utils/propertyImages";
 
 interface Property {
   Project: string;
-  "Sector ": string;
+  Sector: string;
   Size: string;
-  "Current Rate": string;
+  CurrentRate: string; // after transformHeader
   NewRate: string;
-  "Alam Update Date": string;
+  AlamUpdateDate: string;
   BHK: string;
 }
 
-interface PageProps {
-  params: { id: string }; // use "id" here
-}
-
-// Slugify function
+// Slugify helper
 const slugify = (str: string) =>
   str.trim().toLowerCase().replace(/\s+/g, "-");
 
-export default function PropertyDetails({ params }: PageProps) {
+export default function PropertyDetails({ params }: { params: { id: string } }) {
+  // CSV path
   const filePath = path.join(process.cwd(), "public", "properties.csv");
-  const file = fs.readFileSync(filePath, "utf8");
-  const { data } = Papa.parse<Property>(file, { header: true, skipEmptyLines: true });
+  const file = fs.readFileSync(filePath, "utf-8");
+
+  // Parse CSV and normalize headers
+  const { data } = Papa.parse<Property>(file, {
+    header: true,
+    skipEmptyLines: true,
+    transformHeader: (header) => header.replace(/\s+/g, ""), // removes spaces
+  });
 
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
 
@@ -48,14 +51,14 @@ export default function PropertyDetails({ params }: PageProps) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="space-y-2">
-          <p><strong>Sector:</strong> {property["Sector "]}</p>
+          <p><strong>Sector:</strong> {property.Sector}</p>
           <p><strong>Size:</strong> {property.Size}</p>
           <p><strong>BHK:</strong> {property.BHK}</p>
         </div>
         <div className="space-y-2">
-          <p><strong>Current Rate:</strong> {property["Current Rate"]}</p>
+          <p><strong>Current Rate:</strong> {property.CurrentRate}</p>
           <p><strong>New Rate:</strong> {property.NewRate || "N/A"}</p>
-          <p><strong>Updated:</strong> {property["Alam Update Date"]}</p>
+          <p><strong>Updated:</strong> {property.AlamUpdateDate}</p>
         </div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
