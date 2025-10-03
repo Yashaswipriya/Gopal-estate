@@ -2,6 +2,7 @@
  import Hero from "@/components/Hero";
  import StatsSection from "@/components/StatsSection";
  import Footer from "@/components/Footer";
+import LandingProperties from "@/components/LandingProperties";
 
 export default function Home() {
   return (
@@ -9,6 +10,9 @@ export default function Home() {
       <Hero />
       <section>
         <StatsSection />
+      </section>
+      <section>
+        <LandingProperties />
       </section>
       <section>
         <Footer />
