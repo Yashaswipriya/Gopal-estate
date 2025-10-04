@@ -4,8 +4,8 @@ import Papa from "papaparse";
 import { projectImages, defaultPropertyImage } from "@/utils/propertyImages";
 import PropertyDetailsClient from "@/components/PropertyDetailsClient";
 
-// Define correct type for page props
-interface PageProps {
+// Rename to avoid clashing with Next.js' own PageProps
+interface PropertyPageProps {
   params: { id: string };
 }
 
@@ -30,8 +30,8 @@ async function getPropertyData(slug: string) {
   return { property, images };
 }
 
-// Next.js will pass { params } automatically
-export default async function PropertyDetailsPage({ params }: PageProps) {
+// Use the renamed type
+export default async function PropertyDetailsPage({ params }: PropertyPageProps) {
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
 
   const data = await getPropertyData(projectSlug);
