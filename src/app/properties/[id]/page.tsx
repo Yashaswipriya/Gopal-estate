@@ -4,11 +4,10 @@ import Papa from "papaparse";
 import { projectImages, defaultPropertyImage } from "@/utils/propertyImages";
 import PropertyDetailsClient from "@/components/PropertyDetailsClient";
 
-// Define a specific and correct type for this page's props
-type Props = {
+// Define correct type for page props
+interface PageProps {
   params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+}
 
 // Helper function to get property data on the server
 async function getPropertyData(slug: string) {
@@ -31,10 +30,10 @@ async function getPropertyData(slug: string) {
   return { property, images };
 }
 
-// Apply the new 'Props' type to the component's arguments
-export default async function PropertyDetailsPage({ params }: Props) {
+// Next.js will pass { params } automatically
+export default async function PropertyDetailsPage({ params }: PageProps) {
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
-  
+
   const data = await getPropertyData(projectSlug);
 
   if (!data) {
