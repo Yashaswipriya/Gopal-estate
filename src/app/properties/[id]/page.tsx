@@ -25,9 +25,15 @@ async function getPropertyData(slug: string) {
   return { property, images };
 }
 
-// No need to manually type props for App Router
-export default async function PropertyDetailsPage({ params }: { params: { id: string } }) {
-  const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
+// In Next.js 15, params is a Promise that needs to be awaited
+export default async function PropertyDetailsPage({ 
+  params 
+}: { 
+  params: Promise<{ id: string }> 
+}) {
+  // Await the params
+  const { id } = await params;
+  const projectSlug = id.trim().toLowerCase().replace(/\s+/g, "-");
 
   const data = await getPropertyData(projectSlug);
 
