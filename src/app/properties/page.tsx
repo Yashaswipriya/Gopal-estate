@@ -27,7 +27,7 @@ export default function PropertiesPage() {
       </AnimatePresence>
 
       {/* Added top padding (pt-28) to push content below the navbar */}
-      <main className="px-6 py-12 pt-28">
+      <main className="px-6 py-12 pt-28 bg-gray-50">
         <h1 className="text-4xl font-bold mb-10 uppercase">All Properties</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((prop, idx) => (

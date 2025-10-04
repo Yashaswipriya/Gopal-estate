@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const menuItems = ["Home", "About", "Properties", "Contact"];
 
@@ -55,9 +56,11 @@ export default function Hero() {
         </div>
 
         {/* Logo + Site Name - Center */}
-        <div className="flex items-center justify-center space-x-2">
-          <Image src="/logo.png" alt="Gopal Estate Logo" width={100} height={100}/>
-        </div>
+        <Link href="/">
+          <div className="flex items-center justify-center space-x-2">
+            <Image src="/logo.png" alt="Gopal Estate Logo" width={100} height={100}/>
+          </div>
+        </Link>
       </div>
 
       {/* Scroll Down Arrow */}

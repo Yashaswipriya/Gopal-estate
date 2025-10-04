@@ -2,7 +2,13 @@ import fs from "fs";
 import path from "path";
 import Papa from "papaparse";
 import { projectImages, defaultPropertyImage } from "@/utils/propertyImages";
-import PropertyDetailsClient from "@/components/PropertyDetailsClient"; // Import the new client component
+import PropertyDetailsClient from "@/components/PropertyDetailsClient";
+
+// Define a specific and correct type for this page's props
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 // Helper function to get property data on the server
 async function getPropertyData(slug: string) {
@@ -12,7 +18,7 @@ async function getPropertyData(slug: string) {
   const { data } = Papa.parse(file, {
     header: true,
     skipEmptyLines: true,
-    transformHeader: (header) => header.replace(/\s+/g, ""),
+    transformHeader: (header: string) => header.replace(/\s+/g, ""),
   });
 
   const property = (data as any[]).find(
@@ -25,8 +31,8 @@ async function getPropertyData(slug: string) {
   return { property, images };
 }
 
-// The main page component is now a Server Component
-export default async function PropertyDetailsPage({ params }: { params: { id: string } }) {
+// Apply the new 'Props' type to the component's arguments
+export default async function PropertyDetailsPage({ params }: Props) {
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
   
   const data = await getPropertyData(projectSlug);
@@ -35,6 +41,5 @@ export default async function PropertyDetailsPage({ params }: { params: { id: st
     return <div className="p-12">Property not found.</div>;
   }
 
-  // Render the Client Component and pass the fetched data as props
   return <PropertyDetailsClient property={data.property} images={data.images} />;
 }
