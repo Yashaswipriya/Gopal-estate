@@ -16,7 +16,7 @@ export default function LandingProperties() {
 
   return (
     <section className="py-12 px-6 bg-gray-50">
-      <h2 className="text-2xl font-bold mb-6 text-center">Featured Properties</h2>
+      <h2 className="text-4xl font-bold mb-10 text-center uppercase">Featured Properties</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {properties.map((prop, idx) => (
           <PropertyCard key={idx} property={prop} />
@@ -24,7 +24,7 @@ export default function LandingProperties() {
       </div>
       <div className="text-center mt-8">
         <Link href="/properties">
-          <button className="px-6 py-3 bg-pink-600 text-white rounded-lg shadow hover:bg-pink-700 transition">
+          <button className="py-3 text-lg text-black font-bold underline cursor-pointer">
             View All Properties
           </button>
         </Link>

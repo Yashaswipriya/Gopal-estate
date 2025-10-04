@@ -13,10 +13,6 @@ interface Property {
   BHK: string;
 }
 
-// Slugify helper
-const slugify = (str: string) =>
-  str.trim().toLowerCase().replace(/\s+/g, "-");
-
 export default function PropertyDetails(props: any) {
   const { params } = props;
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
