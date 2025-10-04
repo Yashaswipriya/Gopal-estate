@@ -1,8 +1,8 @@
 "use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 const menuItems = ["Home", "About", "Properties", "Contact"];
 
@@ -56,7 +56,7 @@ export default function Hero() {
 
         {/* Logo + Site Name - Center */}
         <div className="flex items-center justify-center space-x-2">
-          <img src="/logo.png" alt="Gopal Estate Logo" className="h-25 w-auto" />
+          <Image src="/logo.png" alt="Gopal Estate Logo" width={100} height={100}/>
         </div>
       </div>
 
@@ -85,7 +85,7 @@ export default function Hero() {
                 <a
                   key={item}
                   href="#"
-                  className="hover:scale-105 transition-transform tracking-widest"
+                  className="hover:underline transition-transform tracking-widest"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item}
