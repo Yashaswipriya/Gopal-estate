@@ -24,7 +24,12 @@ const itemVariants = {
 };
 
 const MenuOverlay: React.FC<MenuOverlayProps> = ({ onClose }) => {
-  const menuItems = ["Home", "Properties", "About Us", "Contact"];
+  const menuItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },        // if you have a section with id="about"
+  { label: "Properties", href: "/properties" },
+  { label: "Contact", href: "/#footer" },    // if you have a section with id="contact"
+];
 
   return (
     <motion.div
@@ -35,22 +40,24 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ onClose }) => {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.ul
-        className="flex flex-col items-center space-y-8"
+        className="flex flex-col items-center gap-15"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {menuItems.map((item) => (
-          <motion.li key={item} variants={itemVariants}>
-            <Link
-              href={`/${item.toLowerCase().replace(" ", "-")}`}
-              className="text-4xl font-semibold text-zinc-800 hover:underline transition-colors"
-              onClick={onClose} // Close menu when a link is clicked
-            >
-              {item}
-            </Link>
-          </motion.li>
-        ))}
+        <ul className="flex flex-col items-center gap-15">
+      {menuItems.map((item) => (
+        <motion.li key={item.label} variants={itemVariants}>
+          <Link
+            href={item.href}
+            className="text-4xl font-semibold text-zinc-800 hover:underline transition-colors"
+            onClick={onClose} // Close menu when a link is clicked
+          >
+            {item.label}
+          </Link>
+        </motion.li>
+      ))}
+    </ul>
       </motion.ul>
     </motion.div>
   );

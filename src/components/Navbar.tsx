@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Define the type for the component's props
 type NavbarProps = {
@@ -43,7 +44,9 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
 
       {/* Center: Logo */}
       <div className="absolute left-1/2 -translate-x-1/2 invert fill">
+      <Link href="/">
         <Image src="/logo.png" alt="Gopal Estate Logo" width={100} height={100} />
+        </Link>
       </div>
 
       {/* Right Side: Spacer to keep logo centered */}

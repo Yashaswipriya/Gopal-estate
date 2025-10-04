@@ -48,7 +48,7 @@ export default function Home() {
         <Hero />
       </div>
 
-      <section>
+      <section id="about">
         <StatsSection />
       </section>
       
@@ -56,7 +56,7 @@ export default function Home() {
         <LandingProperties />
       </section>
       
-      <section>
+      <section id="footer">
         <Footer />
       </section>
     </main>

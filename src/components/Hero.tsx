@@ -5,7 +5,12 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const menuItems = ["Home", "About", "Properties", "Contact"];
+const menuItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },        // if you have a section with id="about"
+  { label: "Properties", href: "/properties" },
+  { label: "Contact", href: "/#footer" },    // if you have a section with id="contact"
+];
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -85,15 +90,15 @@ export default function Hero() {
           >
             <nav className="flex flex-col gap-15 font-bold text-4xl text-black items-center">
               {menuItems.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="hover:underline transition-transform tracking-widest"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-gray-700 hover:underline hover:scale-105 transition"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
             </nav>
           </motion.div>
         )}
