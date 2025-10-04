@@ -6,8 +6,8 @@ import { useInView } from "react-intersection-observer";
 
 const stats = [
   { label: "Portfolio value", value: 20.0, suffix: "Crore", prefix: "" },
-  { label: "SQ. FT. of portfolio", value: 13, suffix: "Lakh", prefix: "" },
-  { label: "SQ. FT. in development", value: 2.0, suffix: "Lakh", prefix: "" },
+  { label: "SQ. FT. of portfolio", value: 13.4, suffix: "Lakh", prefix: "" },
+  { label: "SQ. FT. in development", value: 2.3, suffix: "Lakh", prefix: "" },
 ];
 
 export default function StatsSection() {
