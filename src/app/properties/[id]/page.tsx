@@ -4,11 +4,6 @@ import Papa from "papaparse";
 import { projectImages, defaultPropertyImage } from "@/utils/propertyImages";
 import PropertyDetailsClient from "@/components/PropertyDetailsClient";
 
-// Rename to avoid clashing with Next.js' own PageProps
-interface PropertyPageProps {
-  params: { id: string };
-}
-
 // Helper function to get property data on the server
 async function getPropertyData(slug: string) {
   const filePath = path.join(process.cwd(), "public", "properties.csv");
@@ -30,8 +25,8 @@ async function getPropertyData(slug: string) {
   return { property, images };
 }
 
-// Use the renamed type
-export default async function PropertyDetailsPage({ params }: PropertyPageProps) {
+// No need to manually type props for App Router
+export default async function PropertyDetailsPage({ params }: { params: { id: string } }) {
   const projectSlug = params.id.trim().toLowerCase().replace(/\s+/g, "-");
 
   const data = await getPropertyData(projectSlug);
