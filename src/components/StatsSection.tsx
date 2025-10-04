@@ -5,9 +5,9 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const stats = [
-  { label: "Portfolio value", value: 8.0, suffix: "Billion", prefix: "$" },
-  { label: "SQ. FT. of portfolio", value: 4.5, suffix: "Million", prefix: "" },
-  { label: "SQ. FT. in development", value: 2.0, suffix: "Million", prefix: "" },
+  { label: "Portfolio value", value: 20.0, suffix: "Crore", prefix: "" },
+  { label: "SQ. FT. of portfolio", value: 13, suffix: "Lakh", prefix: "" },
+  { label: "SQ. FT. in development", value: 2.0, suffix: "Lakh", prefix: "" },
 ];
 
 export default function StatsSection() {

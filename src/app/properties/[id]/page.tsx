@@ -41,5 +41,5 @@ export default async function PropertyDetailsPage({
     return <div className="p-12">Property not found.</div>;
   }
 
-  return <PropertyDetailsClient property={data.property} images={data.images} />;
+  return <PropertyDetailsClient property={data.property} image={data.images} />;
 }

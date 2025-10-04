@@ -14,7 +14,7 @@ interface PropertyCardProps {
 
 export default function PropertyCard({ property }: PropertyCardProps) {
   // If no image for the project, use default
-  const images = projectImages[property.Project] || defaultPropertyImage;
+const imageSrc = projectImages[property.Project] || defaultPropertyImage;
 
   const slugify = (str: string) =>
     str.trim().toLowerCase().replace(/\s+/g, "-");
@@ -23,7 +23,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     <Link href={`/properties/${slugify(property.Project)}`}>
       <div className="bg-white overflow-hidden hover:scale-105 transition">
         <img
-          src={images.main}
+          src={imageSrc}
           alt={property.Project}
           className="h-56 w-full object-cover"
         />

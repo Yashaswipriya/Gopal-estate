@@ -17,17 +17,12 @@ interface Property {
   BHK: string;
 }
 
-interface Images {
-  main: string;
-  extras?: string[];
-}
-
 interface PropertyDetailsClientProps {
   property: Property;
-  images: Images;
+  image: string; 
 }
 
-const PropertyDetailsClient: React.FC<PropertyDetailsClientProps> = ({ property, images }) => {
+const PropertyDetailsClient: React.FC<PropertyDetailsClientProps> = ({ property, image }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
@@ -41,7 +36,7 @@ const PropertyDetailsClient: React.FC<PropertyDetailsClientProps> = ({ property,
       {/* Hero Image */}
       <div className="mb-12">
         <img
-          src={images.main}
+          src={image}
           alt={property.Project}
           className="w-full h-[500px] object-cover"
         />
