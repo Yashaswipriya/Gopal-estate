@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Define the type for the component's props
 type NavbarProps = {
   menuOpen: boolean;
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,7 +18,6 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle Menu"
         >
-          {/* Top line of hamburger/X */}
           <motion.span
             className="absolute block h-[1.5px] w-full bg-white origin-center"
             animate={
@@ -29,7 +27,6 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
             }
             transition={{ duration: 0.3 }}
           />
-          {/* Bottom line of hamburger/X */}
           <motion.span
             className="absolute block h-[1.5px] w-full bg-white origin-center"
             animate={
@@ -48,8 +45,6 @@ const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
         <Image src="/logo.png" alt="Gopal Estate Logo" width={100} height={100} />
         </Link>
       </div>
-
-      {/* Right Side: Spacer to keep logo centered */}
       <div className="w-8 h-8" />
     </nav>
   );

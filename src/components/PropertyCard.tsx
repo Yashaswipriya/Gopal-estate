@@ -14,7 +14,6 @@ interface PropertyCardProps {
 }
 
 export default function PropertyCard({ property }: PropertyCardProps) {
-  // If no image for the project, use default
 const imageSrc = projectImages[property.Project] || defaultPropertyImage;
 
   const slugify = (str: string) =>

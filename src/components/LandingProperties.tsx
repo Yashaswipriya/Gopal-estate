@@ -10,7 +10,7 @@ export default function LandingProperties() {
 
   useEffect(() => {
     loadProperties().then((data) => {
-      setProperties(data.slice(0, 6)); // take only first 6
+      setProperties(data.slice(0, 6)); 
     });
   }, []);
 

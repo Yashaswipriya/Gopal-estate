@@ -60,12 +60,10 @@ export default function StatsSection() {
               },
             }}
           >
-            {/* Big Number */}
             <p className="text-5xl sm:text-4xl 2xl:text-5xl tracking-wider">
               {stat.prefix}
               {counters[i]} {stat.suffix}
             </p>
-            {/* Label */}
             <p className="text-lg 2xl:text-2xl uppercase tracking-wider font-body mt-2">
               {stat.label}
             </p>

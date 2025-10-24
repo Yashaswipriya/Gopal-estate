@@ -1,23 +1,20 @@
 import { motion } from "framer-motion";
-import Link from "next/link"; // Assuming you're using Next.js
+import Link from "next/link";
 
-// Define the type for the props, including a function to close the menu
 type MenuOverlayProps = {
   onClose: () => void;
 };
 
-// A variant for the container to orchestrate animations
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Animate links one after another
+      staggerChildren: 0.1,
     },
   },
 };
 
-// A variant for each menu item
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: { y: 0, opacity: 1 },
@@ -26,9 +23,9 @@ const itemVariants = {
 const MenuOverlay: React.FC<MenuOverlayProps> = ({ onClose }) => {
   const menuItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },        // if you have a section with id="about"
+  { label: "About", href: "/#about" },        
   { label: "Properties", href: "/properties" },
-  { label: "Contact", href: "/#footer" },    // if you have a section with id="contact"
+  { label: "Contact", href: "/#footer" },
 ];
 
   return (
@@ -51,7 +48,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ onClose }) => {
           <Link
             href={item.href}
             className="text-4xl font-semibold text-zinc-800 hover:underline transition-colors"
-            onClick={onClose} // Close menu when a link is clicked
+            onClick={onClose}
           >
             {item.label}
           </Link>

@@ -4,7 +4,6 @@ import Papa from "papaparse";
 import { projectImages, defaultPropertyImage } from "@/utils/propertyImages";
 import PropertyDetailsClient from "@/components/PropertyDetailsClient";
 
-// Helper function to get property data on the server
 async function getPropertyData(slug: string) {
   const filePath = path.join(process.cwd(), "public", "properties.csv");
   const file = fs.readFileSync(filePath, "utf-8");
@@ -25,13 +24,11 @@ async function getPropertyData(slug: string) {
   return { property, images };
 }
 
-// In Next.js 15, params is a Promise that needs to be awaited
 export default async function PropertyDetailsPage({ 
   params 
 }: { 
   params: Promise<{ id: string }> 
 }) {
-  // Await the params
   const { id } = await params;
   const projectSlug = id.trim().toLowerCase().replace(/\s+/g, "-");
 

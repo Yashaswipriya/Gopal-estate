@@ -7,7 +7,6 @@ import MenuOverlay from "@/components/MenuOverlay";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
-// Define the types for the props this component will receive
 interface Property {
   Project: string;
   Sector: string;
@@ -28,7 +27,6 @@ const PropertyDetailsClient: React.FC<PropertyDetailsClientProps> = ({ property,
 
   return (
     <main className="bg-white text-zinc-800">
-      {/* Navbar and Menu Overlay for interactivity */}
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <AnimatePresence>
         {menuOpen && <MenuOverlay onClose={() => setMenuOpen(false)} />}

@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const menuItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },        // if you have a section with id="about"
+  { label: "About", href: "/#about" },        
   { label: "Properties", href: "/properties" },
-  { label: "Contact", href: "/#footer" },    // if you have a section with id="contact"
+  { label: "Contact", href: "/#footer" },    
 ];
 
 export default function Hero() {
@@ -29,15 +29,13 @@ export default function Hero() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Top Bar: Menu + Logo + Name */}
+      {/*Menu + Logo + Name */}
       <div className="absolute top-6 left-0 w-full flex items-center justify-center px-6 z-50">
-        {/* Hamburger Button - Left */}
         <div className="absolute left-6">
           <button
             className="w-8 h-8 flex items-center justify-center"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
-            {/* Top line */}
             <motion.span
               className="absolute block h-[1px] w-full bg-white origin-center"
               animate={
@@ -47,7 +45,6 @@ export default function Hero() {
               }
               transition={{ duration: 0.3 }}
             />
-            {/* Bottom line */}
             <motion.span
               className="absolute block h-[1px] w-full bg-white origin-center"
               animate={
@@ -59,8 +56,6 @@ export default function Hero() {
             />
           </button>
         </div>
-
-        {/* Logo + Site Name - Center */}
         <Link href="/">
           <div className="flex items-center justify-center space-x-2 invert fill-white">
             <Image src="/logo.png" alt="Gopal Estate Logo" width={100} height={100}/>
@@ -68,7 +63,6 @@ export default function Hero() {
         </Link>
       </div>
 
-      {/* Scroll Down Arrow */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
         <motion.div
           animate={{ y: [0, 10, 0] }}

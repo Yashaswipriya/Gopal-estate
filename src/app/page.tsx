@@ -32,7 +32,6 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      {/* Animated Navbar using Framer Motion */}
       <motion.div
         className="fixed top-0 left-0 w-full z-50"
         initial={{ y: -100, opacity: 0 }}

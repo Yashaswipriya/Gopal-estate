@@ -26,10 +26,7 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Divider */}
       <div className="w-24 h-[1px] bg-gray-300 mx-auto my-8"></div>
-
-      {/* Copyright */}
       <p className="text-xs text-gray-500 tracking-widest uppercase">
         © {new Date().getFullYear()} Gopal Estate — All Rights Reserved
       </p>
